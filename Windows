@@ -1,0 +1,85 @@
+Write-Host "WarHammer" -ForegroundColor Green
+Write-Host "2022-2023 ASU CCDC Team"
+Write-Host "Author: Epi AKA David Lee"
+Write-Host "Windows hardening script"
+Write-Host "list details here."
+
+run in while loop?
+
+#todo-commands
+
+       
+    #change all passwords
+        #if enrolled in a domain OR check if in AD enviorment
+        #https://www.varonis.com/blog/powershell-active-directory-module
+            #if active directory module is present
+            #else install rstat or ad module
+                #get list of all ad users. place in array or list?
+                #for each 
+                    #set password
+                        #https://www.ntweekly.com/2016/05/06/change-user-or-multiple-users-password-using-powershell/
+        #if not in act
+        #verify
+
+    #enable firewall
+    Set-NetFirewallProfile -Enabled True
+        #verify
+        if(Set-NetFirewallProfile -Enabled False){
+        #notify responder if failed to enable
+        Write-Host "Firewall not enabled"
+        }
+
+    #enable update services
+        #start windows update
+        Start-Service -Name "wuauserv"
+        #verify
+
+
+        #start Windows Update Medic Service
+        Start-Service -Name "WaaSMedicSvc"
+        #verify
+
+    #enable Windows Security Service
+        Start-Service -Name "SecurityHealthService"
+        #verify
+
+    #set uac to max
+        #verify
+
+
+    other popular windows exploits
+
+    backup PII 
+    backup users
+    backup DNS
+    backup ad?
+    install sysinternals
+
+#to-do interact
+    write-host "mannually update passwords"
+
+    eternal blue
+        ask if running smb
+        if yes enable smbv2
+        disable smbv1   
+        (mannually enable smbv2 FIRST if scored service
+            https://www.slashgear.com/smb-v1-vulnerability-wont-be-fixed-heres-how-to-disable-it-01493533/ 
+
+
+
+#to-do enumeration
+    print local users
+    print local groups
+    pring locad admin group
+    print ad users
+    print ad groups
+    print ad admin group
+    print firewall rules
+        diable all firewall rules not relating to services???
+    print UAC
+#clear history due to passwords being set
+
+#references
+    #https://www.technewstoday.com/powershell-disable-firewall/
+
+
